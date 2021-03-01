@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  next-cloud:
+    image: nextcloud
+    restart: always
+    
+  nginx-ssl:
+    build:
+      context: ./nginx
+    environment:
+      - SSL_EXPOSE_PORT=50603
+    ports:
+      - 50603:443
+    restart: always
